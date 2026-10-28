@@ -111,31 +111,4 @@ input[type=range]::-webkit-slider-runnable-track {
         background: rgba(10, 10, 10, 0.96);
     }
 
-    #product-grid {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        gap: 1rem;
-        padding-bottom: 0.5rem;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    #product-grid > .product-card {
-        flex: 0 0 min(82vw, 320px);
-        scroll-snap-align: start;
-    }
-
-    #product-grid::-webkit-scrollbar {
-        height: 6px;
-    }
-
-    #product-grid::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.04);
-    }
-
-    #product-grid::-webkit-scrollbar-thumb {
-        background: rgba(212, 175, 55, 0.65);
-    }
 }

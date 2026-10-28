@@ -21,10 +21,6 @@ function getCatalogMaxPrice() {
 
 const CATALOG_MAX_PRICE = getCatalogMaxPrice();
 
-function getItemsPerPage() {
-    return window.innerWidth < MOBILE_BREAKPOINT ? 6 : 6;
-}
-
 let state = {
     products: [...CATALOG_PRODUCTS],
     cart: [],
@@ -36,9 +32,7 @@ let state = {
         gender: [],
         maxPrice: CATALOG_MAX_PRICE
     },
-    sort: "relevance",
-    currentPage: 1,
-    itemsPerPage: getItemsPerPage()
+    sort: "relevance"
 };
 
 function debounce(fn, wait = 120) {
@@ -230,19 +224,12 @@ function renderProducts() {
     }
 
     if(emptyState) emptyState.classList.add('hidden');
-    
-    // Paginación
-    const totalPages = Math.ceil(filtered.length / state.itemsPerPage);
-    state.currentPage = Math.max(1, Math.min(state.currentPage, totalPages));
-    
-    const start = (state.currentPage - 1) * state.itemsPerPage;
-    const end = start + state.itemsPerPage;
-    const pageItems = filtered.slice(start, end);
-    
+
     // Actualizar contador con total filtrado
     if(countEl) countEl.innerText = filtered.length;
-    
-    grid.innerHTML = pageItems.map(product => {
+
+    // Todos los productos en una sola vista (sin paginación)
+    grid.innerHTML = filtered.map(product => {
         const options = getPriceOptions(product);
         const defaultOpt = options[0] || null;
         const isSoldOut = Boolean(product.soldOut);
@@ -265,7 +252,7 @@ function renderProducts() {
             <button 
                 class="size-btn w-full py-1 text-[10px] border border-gray-700 hover:border-gior-gold hover:text-gior-gold transition-colors ${idx === 0 ? 'bg-gior-gold text-black border-gior-gold font-bold' : 'text-gray-400'} ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}"
                 data-option-key="${opt.key}"
-                onclick="selectSize(this, ${product.id}, '${opt.key}')"
+                onclick="event.stopPropagation(); selectSize(this, ${product.id}, '${opt.key}')"
                 ${isDisabled ? 'disabled' : ''}
             >${opt.label}</button>
         `).join('');
@@ -284,26 +271,24 @@ function renderProducts() {
         const displayPriceDataAttr = defaultOpt ? `data-price="${defaultOpt.price}"` : '';
 
         return `
-        <div class="group bg-gior-card border border-gray-800 hover:border-gior-gold/50 transition-all duration-300 flex flex-col h-full relative overflow-hidden product-card ${isDisabled ? 'opacity-75' : ''}" id="card-${product.id}">
-            
-            <!-- Área de Imagen -->
-            <div class="relative h-64 overflow-hidden bg-gray-900">
+        <div class="group bg-gior-card border border-gray-800 hover:border-gior-gold/50 transition-all duration-300 flex flex-col h-full relative overflow-hidden product-card cursor-pointer ${isDisabled ? 'opacity-75' : ''}" id="card-${product.id}" onclick="openProductModal(${product.id})">
+
+            <!-- Área de Imagen (clic en la tarjeta abre el detalle) -->
+            <div class="relative h-44 sm:h-64 overflow-hidden bg-gray-900">
                 <div class="absolute top-2 left-2 z-10 flex flex-col gap-1">${badges}</div>
-                <img src="${product.imgUrl}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
-                
-                <!-- Acciones Overlay -->
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 backdrop-blur-[2px]">
-                    <button onclick="openProductModal(${product.id})" class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-gior-gold transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75 shadow-lg">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button onclick="addToCart(${product.id})" ${isDisabled ? 'disabled' : ''} class="w-10 h-10 rounded-full bg-gior-gold text-black flex items-center justify-center hover:bg-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-100 shadow-lg ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}">
+                <img src="${product.imgUrl}" alt="${product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+
+                <!-- Acciones Overlay (solo escritorio) -->
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:flex items-center justify-center gap-3 backdrop-blur-[2px]">
+                    <span class="px-4 h-10 rounded-full bg-white text-black text-xs font-bold uppercase tracking-wider flex items-center transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75 shadow-lg">Ver detalle</span>
+                    <button onclick="event.stopPropagation(); addToCart(${product.id})" ${isDisabled ? 'disabled' : ''} class="w-10 h-10 rounded-full bg-gior-gold text-black flex items-center justify-center hover:bg-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-100 shadow-lg ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Contenido -->
-            <div class="p-5 flex-grow flex flex-col">
+            <div class="p-3 sm:p-5 flex-grow flex flex-col">
                 <div class="mb-1 text-[10px] text-gior-gold uppercase tracking-widest font-bold">${product.house}</div>
                 <div class="mb-2 flex flex-wrap gap-1">
                     ${Array.isArray(product.gender) ? (() => {
@@ -327,17 +312,17 @@ function renderProducts() {
                         }
                     })() : ''}
                 </div>
-                <h3 class="text-white font-serif font-bold text-lg leading-tight mb-2 group-hover:text-gior-gold transition-colors truncate">${product.name}</h3>
-                <p class="text-gray-500 text-xs line-clamp-2 mb-4 h-8">${product.description}</p>
-                
+                <h3 class="text-white font-serif font-bold text-sm sm:text-lg leading-tight mb-2 group-hover:text-gior-gold transition-colors line-clamp-2">${product.name}</h3>
+                <p class="hidden sm:block text-gray-500 text-xs line-clamp-2 mb-4 h-8">${product.description}</p>
+
                 <!-- Precio y Selección -->
                 <div class="mt-auto">
-                    <div class="flex justify-between items-end mb-3">
+                    <div class="flex justify-between items-end mb-2 sm:mb-3">
                         <div>
-                            <span class="text-gray-400 text-xs block mb-0.5">Precio desde:</span>
-                            <span class="text-xl font-bold text-white display-price" ${displayPriceDataAttr}>${displayPrice}</span>
+                            <span class="text-gray-400 text-[10px] sm:text-xs block mb-0.5">Precio desde:</span>
+                            <span class="text-base sm:text-xl font-bold text-white display-price" ${displayPriceDataAttr}>${displayPrice}</span>
                         </div>
-                        <div class="text-right">
+                        <div class="text-right hidden sm:block">
                             <span class="text-[10px] text-gray-500 bg-gray-800 px-2 py-1 rounded selected-size-label">${selectedLabel}</span>
                         </div>
                     </div>
@@ -349,53 +334,6 @@ function renderProducts() {
             </div>
         </div>`;
     }).join('');
-
-    if (window.innerWidth < MOBILE_BREAKPOINT) {
-        grid.scrollLeft = 0;
-    }
-    
-    // Renderizar Paginación
-    renderPagination(totalPages, filtered.length);
-}
-
-function renderPagination(totalPages, totalItems) {
-    const paginationEl = document.getElementById('pagination');
-    if (!paginationEl || totalPages <= 1) {
-        if(paginationEl) paginationEl.innerHTML = '';
-        return;
-    }
-    
-    let html = '<div class="flex items-center justify-center gap-2 mt-8 flex-wrap">';
-    
-    // Botón Anterior
-    if (state.currentPage > 1) {
-        html += `<button onclick="goToPage(${state.currentPage - 1})" class="px-3 py-2 border border-gray-700 text-gray-400 hover:border-gior-gold hover:text-gior-gold transition-colors text-sm"><i class="fas fa-chevron-left"></i></button>`;
-    }
-    
-    // Números de página
-    for (let i = 1; i <= totalPages; i++) {
-        const isActive = i === state.currentPage;
-        const classes = isActive 
-            ? 'bg-gior-gold text-black font-bold px-3 py-2' 
-            : 'border border-gray-700 text-gray-400 hover:border-gior-gold hover:text-gior-gold px-3 py-2';
-        html += `<button onclick="goToPage(${i})" class="${classes} transition-colors text-sm">${i}</button>`;
-    }
-    
-    // Botón Siguiente
-    if (state.currentPage < totalPages) {
-        html += `<button onclick="goToPage(${state.currentPage + 1})" class="px-3 py-2 border border-gray-700 text-gray-400 hover:border-gior-gold hover:text-gior-gold transition-colors text-sm"><i class="fas fa-chevron-right"></i></button>`;
-    }
-    
-    html += '</div>';
-    paginationEl.innerHTML = html;
-}
-
-function goToPage(page) {
-    state.currentPage = page;
-    renderProducts();
-    if (window.innerWidth >= MOBILE_BREAKPOINT) {
-        document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
-    }
 }
 
 // --- INTERACTION FUNCTIONS ---
@@ -436,7 +374,6 @@ function toggleMobileFilters(forceOpen) {
 
 // Filtros
 function updateFilter(key, value, element) {
-    state.currentPage = 1; // Reset a primera página al filtrar
     if (key === 'type') {
         if (element) { // checked
             state.filters.type.push(value);
@@ -478,7 +415,6 @@ const sidebarSearch = document.getElementById('sidebar-search');
 if(sidebarSearch) {
     const onSidebarSearch = debounce((value) => {
         state.filters.search = value;
-        state.currentPage = 1;
         renderProducts();
     }, 140);
 
@@ -491,7 +427,6 @@ const navSearch = document.getElementById('nav-search');
 if(navSearch) {
     const onNavSearch = debounce((value) => {
         state.filters.search = value;
-        state.currentPage = 1;
         if(window.scrollY < 400) document.getElementById('catalogo').scrollIntoView({behavior: 'smooth'});
         renderProducts();
     }, 140);
@@ -505,7 +440,6 @@ const priceRange = document.getElementById('price-range');
 if(priceRange) {
     const onPriceChange = debounce((value) => {
         state.filters.maxPrice = parseInt(value, 10);
-        state.currentPage = 1;
         document.getElementById('price-display').innerText = `S/. ${state.filters.maxPrice}`;
         renderProducts();
     }, 60);
@@ -519,7 +453,6 @@ const sortSelect = document.getElementById('sort-select');
 if(sortSelect) {
     sortSelect.addEventListener('change', (e) => {
         state.sort = e.target.value;
-        state.currentPage = 1;
         renderProducts();
     });
 }
@@ -528,7 +461,6 @@ const resetBtn = document.getElementById('reset-filters');
 if(resetBtn) {
     resetBtn.addEventListener('click', () => {
          state.filters = { search: "", type: [], category: [], gender: [], concentration: null, maxPrice: CATALOG_MAX_PRICE };
-         state.currentPage = 1;
          // Reset UI elements
          document.getElementById('price-range').value = CATALOG_MAX_PRICE;
          document.getElementById('price-display').innerText = `S/. ${CATALOG_MAX_PRICE}`;
@@ -867,7 +799,6 @@ function initApp() {
         resizeTimer = setTimeout(() => {
             const filtersPanel = document.getElementById('filters-container');
             const filtersOverlay = document.getElementById('filters-overlay');
-            const nextItems = getItemsPerPage();
 
             if (window.innerWidth >= MOBILE_BREAKPOINT) {
                 document.body.classList.remove('overflow-hidden');
@@ -882,13 +813,11 @@ function initApp() {
             } else if (filtersPanel && !filtersPanel.classList.contains('mobile-open')) {
                 filtersPanel.classList.add('hidden');
             }
-
-            if (nextItems !== state.itemsPerPage) {
-                state.itemsPerPage = nextItems;
-                state.currentPage = 1;
-                renderProducts();
-            }
         }, 120);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProductModal();
     });
 }
 
