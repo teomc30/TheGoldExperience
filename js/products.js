@@ -271,7 +271,7 @@ const productsBase = [
         concentration: "EDP",
         description: "Un licor especiado y dulce. Canela, dátiles y praliné sobre un fondo cálido de vainilla y ámbar.",
         notes: "Canela, Nuez Moscada, Bergamota, Dátiles, Praliné, Tuberosa, Vainilla, Haba Tonka, Mirra.",
-        pricefull100: 170,
+        pricefull100: 160,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
         imgUrl: "https://cdn.shopify.com/s/files/1/0659/2249/8691/files/10-3_46ac00f7-b62f-4028-9f2c-a1035a76bc48.webp?v=1777967592",
