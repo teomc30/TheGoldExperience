@@ -234,11 +234,179 @@ const productsBase = [
         pricefull100: 980,
         rarity: "legendario",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://parfumexquis.us/cdn/shop/files/XerjoffErbaPura_2.jpg?v=1742329168&width=2048",
+        imgUrl: "https://perfumescardales.com.ar/wp-content/uploads/2026/06/erba-pura-1.png",
         accordBars: [
             { name: "Afrutado", color: "#e74c3c", width: 100 },
             { name: "Dulce", color: "#f39c12", width: 85 },
             { name: "Almizclado", color: "#ecf0f1", width: 70 }
+        ]
+    },
+    {
+        id: 19,
+        name: "Freeze 100 ML",
+        house: "Riiffs",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "Frescura helada y vibrante. Menta, cítricos y té que se sienten como una brisa de invierno.",
+        notes: "Bergamota, Hierbabuena, Limón, Pomelo, Jengibre, Salvia, Té, Cedro.",
+        pricefull100: 230,
+        rarity: "comun",
+        gender: ["Hombre", "Mujer"],
+        imgUrl: "https://cdn.shopify.com/s/files/1/0815/8848/6483/files/Riiffs-Freeze-ekstrakt-perfum-dla-mezczyzn-100ml_UAE_6295151504031-3.webp?v=1771082345",
+        accordBars: [
+            { name: "Fresco", color: "#3498db", width: 100 },
+            { name: "Cítrico", color: "#f1c40f", width: 90 },
+            { name: "Aromático", color: "#2ecc71", width: 75 },
+            { name: "Especiado Fresco", color: "#1abc9c", width: 65 },
+            { name: "Amaderado", color: "#5d4037", width: 50 }
+        ]
+    },
+    {
+        id: 20,
+        name: "Khamrah Clásico 100 ML",
+        house: "Lattafa",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "Un licor especiado y dulce. Canela, dátiles y praliné sobre un fondo cálido de vainilla y ámbar.",
+        notes: "Canela, Nuez Moscada, Bergamota, Dátiles, Praliné, Tuberosa, Vainilla, Haba Tonka, Mirra.",
+        pricefull100: 170,
+        rarity: "comun",
+        gender: ["Hombre", "Mujer"],
+        imgUrl: "https://cdn.shopify.com/s/files/1/0659/2249/8691/files/10-3_46ac00f7-b62f-4028-9f2c-a1035a76bc48.webp?v=1777967592",
+        topSeller: true,
+        accordBars: [
+            { name: "Dulce", color: "#f39c12", width: 100 },
+            { name: "Cálido Especiado", color: "#c0392b", width: 90 },
+            { name: "Vainilla", color: "#f1c40f", width: 80 },
+            { name: "Ámbar", color: "#e67e22", width: 70 },
+            { name: "Afrutado", color: "#d35400", width: 55 }
+        ]
+    },
+    {
+        id: 21,
+        name: "Mandarine Sky Elixir 100 ML",
+        house: "Armaf",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "La versión más intensa de Mandarine Sky. Caramelo e incienso que suman profundidad al cítrico dulce.",
+        notes: "Mandarina, Naranja, Lavanda, Cardamomo, Caramelo, Incienso, Haba Tonka, Vainilla, Vetiver.",
+        pricefull100: 180,
+        rarity: "raro",
+        gender: ["Hombre"],
+        imgUrl: "https://cdn.shopify.com/s/files/1/0676/5078/1449/files/perfume-odyssey-mandarin-sky-elixir-edp-armaf.webp?v=1766499908",
+        accordBars: [
+            { name: "Dulce", color: "#e91e63", width: 100 },
+            { name: "Caramelo", color: "#d35400", width: 90 },
+            { name: "Cítrico", color: "#f1c40f", width: 80 },
+            { name: "Cálido Especiado", color: "#c0392b", width: 70 },
+            { name: "Vainilla", color: "#f39c12", width: 60 }
+        ]
+    },
+    {
+        id: 22,
+        name: "Hawas Ice 100 ML",
+        house: "Rasasi",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "La bestia del verano, ahora más helada. Ciruela y cítricos con un toque extra de menta.",
+        notes: "Manzana, Limón Italiano, Ciruela, Menta, Maderas.",
+        pricefull100: 180,
+        rarity: "comun",
+        gender: ["Hombre"],
+        imgUrl: "https://aromahousebd.com/cdn/shop/files/rn-image_picker_lib_temp_d897b9dc-9403-45c6-b05c-6e177c5aeb82.jpg?v=1774685275&width=1200",
+        accordBars: [
+            { name: "Afrutado", color: "#8e44ad", width: 100 },
+            { name: "Fresco", color: "#3498db", width: 90 },
+            { name: "Acuático", color: "#00bcd4", width: 80 },
+            { name: "Dulce", color: "#f1c40f", width: 70 }
+        ]
+    },
+    {
+        id: 23,
+        name: "Veneno Black 100 ML",
+        house: "French Avenue",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "Ahumado y seductor. Manzana y canela que se funden con tabaco y vainilla bourbon.",
+        notes: "Manzana, Canela, Humo, Musgo, Tabaco, Vainilla Bourbon.",
+        pricefull100: 230,
+        rarity: "raro",
+        gender: ["Hombre", "Mujer"],
+        imgUrl: "https://cdn.shopify.com/s/files/1/0570/0891/4541/files/french-avenue-veneno-black_photography_image.jpg?v=1769790104",
+        accordBars: [
+            { name: "Tabaco", color: "#795548", width: 100 },
+            { name: "Ahumado", color: "#607d8b", width: 85 },
+            { name: "Vainilla", color: "#f1c40f", width: 80 },
+            { name: "Cálido Especiado", color: "#c0392b", width: 70 },
+            { name: "Afrutado", color: "#e74c3c", width: 55 }
+        ]
+    },
+    {
+        id: 24,
+        name: "Veneno Scarlet 100 ML",
+        house: "French Avenue",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "Gourmand intenso de frutos rojos azucarados, caramelo y cuero con un fondo cálido y especiado.",
+        notes: "Fresa, Mora, Frambuesa, Caramelo, Canela, Cuero, Vainilla, Pachulí, Haba Tonka.",
+        pricefull100: 230,
+        rarity: "raro",
+        gender: ["Hombre", "Mujer"],
+        imgUrl: "/assets/images/veneno-scarlet.jpg",
+        accordBars: [
+            { name: "Afrutado", color: "#e74c3c", width: 100 },
+            { name: "Dulce", color: "#f39c12", width: 90 },
+            { name: "Caramelo", color: "#d35400", width: 80 },
+            { name: "Cuero", color: "#6d4c41", width: 70 },
+            { name: "Cálido Especiado", color: "#c0392b", width: 60 }
+        ]
+    },
+    {
+        id: 25,
+        name: "Supremacy Collector's Edition 100 ML",
+        house: "Afnan",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "Elegancia frutal y amaderada de gran presencia. Piña y manzana sobre un fondo de musgo y ámbar gris.",
+        notes: "Piña, Bergamota, Manzana, Flor de Azahar, Abedul, Ámbar, Musgo de Roble, Almizcle, Ámbar Gris.",
+        pricefull100: 270,
+        rarity: "raro",
+        gender: ["Hombre"],
+        imgUrl: "https://cdn.shopify.com/s/files/1/0839/6321/6212/files/Untitled_design_64.webp?v=1753154264",
+        accordBars: [
+            { name: "Afrutado", color: "#e74c3c", width: 100 },
+            { name: "Amaderado", color: "#5d4037", width: 85 },
+            { name: "Ahumado", color: "#607d8b", width: 70 },
+            { name: "Almizclado", color: "#ecf0f1", width: 60 },
+            { name: "Cítrico", color: "#f1c40f", width: 50 }
+        ]
+    },
+    {
+        id: 26,
+        name: "9AM Dive 100 ML",
+        house: "Afnan",
+        category: "Arabe",
+        type: "Botella Sellada",
+        concentration: "EDP",
+        description: "Una zambullida de frescura. Cítricos, menta y grosella negra sobre un fondo amaderado limpio y moderno.",
+        notes: "Limón, Pimienta Rosa, Menta, Grosella Negra, Manzana, Incienso, Cedro, Pachulí, Jengibre, Sándalo.",
+        pricefull100: 170,
+        rarity: "comun",
+        gender: ["Hombre", "Mujer"],
+        imgUrl: "https://cdn.shopify.com/s/files/1/0388/7287/5140/products/afnan-9am-dive-edp-perfume-cologne-464696.jpg?v=1675202063",
+        accordBars: [
+            { name: "Cítrico", color: "#f1c40f", width: 100 },
+            { name: "Acuático", color: "#00bcd4", width: 90 },
+            { name: "Fresco", color: "#3498db", width: 80 },
+            { name: "Aromático", color: "#2ecc71", width: 70 },
+            { name: "Amaderado", color: "#5d4037", width: 55 }
         ]
     }
 
