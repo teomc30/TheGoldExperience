@@ -271,12 +271,12 @@ function renderProducts() {
         const displayPriceDataAttr = defaultOpt ? `data-price="${defaultOpt.price}"` : '';
 
         return `
-        <div class="group bg-gior-card border border-gray-800 hover:border-gior-gold/50 transition-all duration-300 flex flex-col h-full relative overflow-hidden product-card cursor-pointer ${isDisabled ? 'opacity-75' : ''}" id="card-${product.id}" onclick="openProductModal(${product.id})">
+        <div class="group bg-gior-card border border-gray-800 hover:border-gior-gold/50 transition-all duration-300 flex flex-row sm:flex-col h-full relative overflow-hidden product-card cursor-pointer ${isDisabled ? 'opacity-75' : ''}" id="card-${product.id}" onclick="openProductModal(${product.id})">
 
             <!-- Área de Imagen (clic en la tarjeta abre el detalle) -->
-            <div class="relative h-44 sm:h-64 overflow-hidden bg-gray-900">
+            <div class="relative w-[42%] shrink-0 self-stretch min-h-[11rem] sm:w-full sm:h-64 sm:min-h-0 overflow-hidden bg-gray-900">
                 <div class="absolute top-2 left-2 z-10 flex flex-col gap-1">${badges}</div>
-                <img src="${product.imgUrl}" alt="${product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+                <img src="${product.imgUrl}" alt="${product.name}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
 
                 <!-- Acciones Overlay (solo escritorio) -->
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:flex items-center justify-center gap-3 backdrop-blur-[2px]">
@@ -288,7 +288,7 @@ function renderProducts() {
             </div>
 
             <!-- Contenido -->
-            <div class="p-3 sm:p-5 flex-grow flex flex-col">
+            <div class="p-3 sm:p-5 flex-grow flex flex-col min-w-0">
                 <div class="mb-1 text-[10px] text-gior-gold uppercase tracking-widest font-bold">${product.house}</div>
                 <div class="mb-2 flex flex-wrap gap-1">
                     ${Array.isArray(product.gender) ? (() => {
@@ -313,7 +313,7 @@ function renderProducts() {
                     })() : ''}
                 </div>
                 <h3 class="text-white font-serif font-bold text-sm sm:text-lg leading-tight mb-2 group-hover:text-gior-gold transition-colors line-clamp-2">${product.name}</h3>
-                <p class="hidden sm:block text-gray-500 text-xs line-clamp-2 mb-4 h-8">${product.description}</p>
+                <p class="text-gray-500 text-[11px] sm:text-xs line-clamp-2 mb-3 sm:mb-4 sm:h-8">${product.description}</p>
 
                 <!-- Precio y Selección -->
                 <div class="mt-auto">
