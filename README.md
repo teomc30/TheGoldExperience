@@ -29,6 +29,7 @@ No usa backend, base de datos ni proceso de build: es HTML + JavaScript plano, c
 │   └── box-logic.js         # Animación y lógica de la ruleta
 ├── css/styles.css           # Estilos propios (complementa a Tailwind)
 ├── assets/images/           # Imágenes locales de productos
+├── tools/guardar-imagenes.mjs  # Descarga imágenes externas a assets/images
 └── CNAME                    # Dominio personalizado de GitHub Pages
 ```
 
@@ -68,7 +69,11 @@ Campos principales:
 | `imgUrl` | string | Imagen del producto (obligatoria) |
 | `accordBars` | array | Barras de acordes: `{ name, color, width }` |
 
-**Imágenes:** se prefieren fotos estilizadas o de ambiente. Si el enlace externo es inestable, descarga la imagen a `assets/images/` y referénciala con ruta relativa (`assets/images/nombre.jpg`).
+**Imágenes:** se prefieren fotos estilizadas o de ambiente. Todas las imágenes se guardan en `assets/images/` (nunca enlaces externos, que se rompen cuando la tienda de origen borra la foto).
+
+- Al agregar un producto puedes pegar el enlace externo en `imgUrl` y luego ejecutar `node tools/guardar-imagenes.mjs`: descarga cada imagen externa, la guarda como `assets/images/<nombre-del-producto>.<ext>` y reemplaza el enlace por la ruta local (`/assets/images/...`).
+- `node tools/guardar-imagenes.mjs --check` solo verifica que todas las imágenes existan localmente.
+- Si aun así una imagen falla al cargar, `js/config.js` muestra `assets/images/sin-imagen.svg` en su lugar.
 
 Los precios se muestran en soles (S/).
 

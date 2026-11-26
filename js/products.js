@@ -63,7 +63,7 @@ const productsBase = [
         pricefull100: 170,
         rarity: "comun",
         gender: ["Hombre"],
-        imgUrl: "https://amanahamh.net/cdn/shop/files/Asad-Bourbon-100ml-Perfume-Eau-de-Parfum-Lattafa_1a9e2a07-ee83-430b-8376-af88782071b0.jpg?v=1735475303",
+        imgUrl: "/assets/images/asad-bourbon.jpg",
         sale: true,
         discount: 10,
         accordBars: [
@@ -89,7 +89,7 @@ const productsBase = [
         pricefull100: 170,
         rarity: "comun",
         gender: ["Hombre"],
-        imgUrl: "https://www.khanelkhaliliusa.com/cdn/shop/files/Screenshot_2025-07-02_at_4.42.48_PM.png?v=1751489053",
+        imgUrl: "/assets/images/mandarine-sky.png",
         accordBars: [
             { name: "Dulce", color: "#e91e63", width: 100 },
             { name: "Caramelo", color: "#d35400", width: 90 },
@@ -110,7 +110,7 @@ const productsBase = [
         pricefull100: 150,
         rarity: "comun",
         gender: ["Mujer"],
-        imgUrl: "https://www.intenseoud.com/cdn/shop/files/21_b67cc975-e856-43db-b935-6f91b4412a60.jpg?v=1728326293",
+        imgUrl: "/assets/images/yara-pink.jpg",
         topSeller: true,
         accordBars: [
             { name: "Dulce", color: "#ff6b81", width: 100 },
@@ -132,7 +132,7 @@ const productsBase = [
         pricefull100: 150,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://m.media-amazon.com/images/I/61lQASNGZ0L.jpg",
+        imgUrl: "/assets/images/sublime.jpg",
         accordBars: [
             { name: "Afrutado", color: "#e84393", width: 100 },
             { name: "Dulce", color: "#fd79a8", width: 90 },
@@ -153,7 +153,7 @@ const productsBase = [
         pricefull100: 160,
         rarity: "raro",
         gender: ["Mujer"],
-        imgUrl: "https://www.mybeautyexchange.com/cdn/shop/files/lattafa-eclaire-eau-de-parfum-34-oz-8224663.webp?v=1773420170&width=1000",
+        imgUrl: "/assets/images/eclaire.jpg",
         topSeller: true,
         accordBars: [
             { name: "Caramelo", color: "#d35400", width: 100 },
@@ -175,7 +175,7 @@ const productsBase = [
         pricefull100: 150,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://m.media-amazon.com/images/I/71luMCs9ruL.jpg",
+        imgUrl: "/assets/images/oud-honor-glory.jpg",
         accordBars: [
             { name: "Dulce", color: "#f1c40f", width: 100 },
             { name: "Vainilla", color: "#f39c12", width: 90 },
@@ -196,7 +196,7 @@ const productsBase = [
         pricefull75: 260,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://perfumescardales.com.ar/wp-content/uploads/2024/12/aqua-dubai-1.jpg",
+        imgUrl: "/assets/images/aqua-dubai-75-ml.jpg",
         accordBars: [
             { name: "Acuático", color: "#00bcd4", width: 100 },
             { name: "Cítrico", color: "#f1c40f", width: 80 },
@@ -215,7 +215,7 @@ const productsBase = [
         pricefull100: 170,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://guateselectos.com/cdn/shop/files/IMG-3508.jpg?v=1770395270&width=1214",
+        imgUrl: "/assets/images/odyssey-aqua-100-ml.jpg",
         accordBars: [
             { name: "Acuático", color: "#00bcd4", width: 95 },
             { name: "Aromático", color: "#2ecc71", width: 80 },
@@ -234,7 +234,7 @@ const productsBase = [
         pricefull100: 980,
         rarity: "legendario",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://perfumescardales.com.ar/wp-content/uploads/2026/06/erba-pura-1.png",
+        imgUrl: "/assets/images/erba-pura-100-ml.png",
         accordBars: [
             { name: "Afrutado", color: "#e74c3c", width: 100 },
             { name: "Dulce", color: "#f39c12", width: 85 },
@@ -253,7 +253,7 @@ const productsBase = [
         pricefull100: 230,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://cdn.shopify.com/s/files/1/0815/8848/6483/files/Riiffs-Freeze-ekstrakt-perfum-dla-mezczyzn-100ml_UAE_6295151504031-3.webp?v=1771082345",
+        imgUrl: "/assets/images/freeze-100-ml.jpg",
         accordBars: [
             { name: "Fresco", color: "#3498db", width: 100 },
             { name: "Cítrico", color: "#f1c40f", width: 90 },
@@ -274,7 +274,7 @@ const productsBase = [
         pricefull100: 160,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://cdn.shopify.com/s/files/1/0659/2249/8691/files/10-3_46ac00f7-b62f-4028-9f2c-a1035a76bc48.webp?v=1777967592",
+        imgUrl: "/assets/images/khamrah-clasico-100-ml.jpg",
         topSeller: true,
         accordBars: [
             { name: "Dulce", color: "#f39c12", width: 100 },
@@ -296,7 +296,7 @@ const productsBase = [
         pricefull100: 180,
         rarity: "raro",
         gender: ["Hombre"],
-        imgUrl: "https://cdn.shopify.com/s/files/1/0676/5078/1449/files/perfume-odyssey-mandarin-sky-elixir-edp-armaf.webp?v=1766499908",
+        imgUrl: "/assets/images/mandarine-sky-elixir-100-ml.jpg",
         accordBars: [
             { name: "Dulce", color: "#e91e63", width: 100 },
             { name: "Caramelo", color: "#d35400", width: 90 },
@@ -317,7 +317,7 @@ const productsBase = [
         pricefull100: 180,
         rarity: "comun",
         gender: ["Hombre"],
-        imgUrl: "https://aromahousebd.com/cdn/shop/files/rn-image_picker_lib_temp_d897b9dc-9403-45c6-b05c-6e177c5aeb82.jpg?v=1774685275&width=1200",
+        imgUrl: "/assets/images/hawas-ice-100-ml.jpg",
         accordBars: [
             { name: "Afrutado", color: "#8e44ad", width: 100 },
             { name: "Fresco", color: "#3498db", width: 90 },
@@ -337,7 +337,7 @@ const productsBase = [
         pricefull100: 230,
         rarity: "raro",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://cdn.shopify.com/s/files/1/0570/0891/4541/files/french-avenue-veneno-black_photography_image.jpg?v=1769790104",
+        imgUrl: "/assets/images/veneno-black-100-ml.jpg",
         accordBars: [
             { name: "Tabaco", color: "#795548", width: 100 },
             { name: "Ahumado", color: "#607d8b", width: 85 },
@@ -379,7 +379,7 @@ const productsBase = [
         pricefull100: 270,
         rarity: "raro",
         gender: ["Hombre"],
-        imgUrl: "https://cdn.shopify.com/s/files/1/0839/6321/6212/files/Untitled_design_64.webp?v=1753154264",
+        imgUrl: "/assets/images/supremacy-collector-s-edition-100-ml.jpg",
         accordBars: [
             { name: "Afrutado", color: "#e74c3c", width: 100 },
             { name: "Amaderado", color: "#5d4037", width: 85 },
@@ -400,7 +400,7 @@ const productsBase = [
         pricefull100: 170,
         rarity: "comun",
         gender: ["Hombre", "Mujer"],
-        imgUrl: "https://cdn.shopify.com/s/files/1/0388/7287/5140/products/afnan-9am-dive-edp-perfume-cologne-464696.jpg?v=1675202063",
+        imgUrl: "/assets/images/9am-dive-100-ml.jpg",
         accordBars: [
             { name: "Cítrico", color: "#f1c40f", width: 100 },
             { name: "Acuático", color: "#00bcd4", width: 90 },
